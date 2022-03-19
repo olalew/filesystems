@@ -162,6 +162,9 @@ void PathPlayground::introspectFileContent() {
 	std::cout << "File size: " << std::filesystem::file_size(base_path) << " bits" << std::endl;
 	std::cout << "Hard link count: " << std::filesystem::hard_link_count(base_path) << std::endl;
 
+	/*
+		PRESENTATION -> reading file modification time
+	*/
 	std::chrono::time_point<std::chrono::file_clock> file_mod_time_point = std::filesystem::last_write_time(base_path);
 	std::chrono::time_point<std::chrono::utc_clock> utc_time = std::chrono::file_clock::to_utc(file_mod_time_point);
 

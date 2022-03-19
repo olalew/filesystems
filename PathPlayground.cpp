@@ -217,5 +217,45 @@ void PathPlayground::iterateDirContent() {
 		return;
 	}
 
-	//bool is_directory = std::filesystem
+	bool is_directory = std::filesystem::is_directory(base_path);
+	if (!is_directory) {
+		std::cout << "NOT A DIRECTORY" << std::endl;
+		return;
+	}
+
+	// NOW IS TIME TO ITERATE
+
+	std::filesystem::directory_iterator dir_iterator = std::filesystem::directory_iterator(base_path);
+	std::filesystem::directory_iterator end;
+	/*
+	for (auto const& entry : dir_iterator) {
+		auto filename = entry.path().filename();
+		auto status = entry.status();
+
+		if (std::filesystem::is_directory(status)) {
+			std::cout << "[+]" << filename << std::endl;
+		}
+		else if (std::filesystem::is_regular_file(status)) {
+			std::cout << " " << filename << std::endl;
+		}
+		else {
+			std::cout << "[?]" << filename << std::endl;
+		}
+	}
+	*/
+	for (; dir_iterator != end; dir_iterator++) {
+		auto entry = *dir_iterator;
+		auto filename = entry.path().filename();
+		auto status = entry.status();
+
+		if (std::filesystem::is_directory(status)) {
+			std::cout << "[+]" << filename << std::endl;
+		}
+		else if (std::filesystem::is_regular_file(status)) {
+			std::cout << " " << filename << std::endl;
+		}
+		else {
+			std::cout << "[?]" << filename << std::endl;
+		}
+	}
 }

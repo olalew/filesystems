@@ -259,3 +259,22 @@ void PathPlayground::iterateDirContent() {
 		}
 	}
 }
+
+void PathPlayground::moveDirectoryConent() {
+	
+	/* 
+		1. To rename a directory
+		2. To move a directory
+		3. To rename a file
+	*/
+
+	std::filesystem::path base_path = std::filesystem::current_path() / "test";
+
+	auto temp_path = base_path / "tmp1" / "tmp2";
+	auto new_temp_path = base_path / "tmp1" / "tmp3";
+
+	std::error_code error;
+	std::filesystem::rename(temp_path, new_temp_path, error);
+
+	if (error) std::cout << error.message() << std::endl;
+}

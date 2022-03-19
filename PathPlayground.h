@@ -14,5 +14,7 @@ public:
 	void introspectFileContent();
 
 	void iterateDirContent();
+
+	void moveDirectoryConent();
 };
 

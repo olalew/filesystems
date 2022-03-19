@@ -140,11 +140,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DirectoryDumper.cpp" />
     <ClCompile Include="Filesystems.cpp" />
     <ClCompile Include="PathPlayground.cpp" />
+    <ClCompile Include="FileMarker.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DirectoryDumper.h" />
     <ClInclude Include="PathPlayground.h" />
+    <ClInclude Include="FileMarker.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
